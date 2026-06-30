@@ -1,0 +1,9 @@
+# Galata Textiles Website - Launch Version
+
+Static website. Upload all files and folders to GitHub.
+
+Vercel settings:
+- Framework Preset: Other
+- Install Command: leave blank
+- Build Command: leave blank
+- Output Directory: leave blank
