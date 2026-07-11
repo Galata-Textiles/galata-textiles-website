@@ -1,0 +1,16 @@
+const menu=document.querySelector('.menu');
+const nav=document.querySelector('.header nav');
+const header=document.querySelector('[data-header]');
+menu?.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu?.setAttribute('aria-expanded','false');}));
+window.addEventListener('scroll',()=>header?.classList.toggle('scrolled',window.scrollY>24),{passive:true});
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const lightbox=document.querySelector('.lightbox');
+const lightboxImg=lightbox?.querySelector('img');
+const closeLightbox=()=>{if(!lightbox)return;lightbox.hidden=true;lightboxImg.src='';document.body.style.overflow='';};
+document.querySelectorAll('.gallery-item').forEach(btn=>btn.addEventListener('click',()=>{if(!lightbox||!lightboxImg)return;lightboxImg.src=btn.dataset.full;lightboxImg.alt=btn.querySelector('img')?.alt||'Textile image';lightbox.hidden=false;document.body.style.overflow='hidden';}));
+lightbox?.querySelector('.lightbox-close')?.addEventListener('click',closeLightbox);
+lightbox?.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+document.getElementById('year').textContent=new Date().getFullYear();

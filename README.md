@@ -1,12 +1,12 @@
-# Galata Textiles Website
+# Galata Textiles Production Website
 
-Launch-ready static website for Galata Textiles.
+Static, Vercel-ready website for **www.galatatextiles.co.za**.
 
-## Vercel settings
+## Deploy through the existing GitHub repository
+1. Back up the current repository files.
+2. Upload every file and folder from this package to the repository root.
+3. Commit directly to the `main` branch.
+4. Vercel will automatically build and deploy the new production version.
+5. Check the Vercel deployment preview before confirming the live domain.
 
-- Framework Preset: Other
-- Install Command: leave blank
-- Build Command: leave blank
-- Output Directory: leave blank
-
-Upload all files in this folder to GitHub, not the ZIP file itself.
+No build command is required. The site serves directly from `index.html`.
